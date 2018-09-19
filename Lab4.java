@@ -15,6 +15,7 @@ input: 4 8 6 9 7 5
 
 import java.util.*;
 import java.io.*;
+import java.lang.*;
 
 public class Lab4 {
   public static void main (String[] args) {
@@ -47,7 +48,11 @@ public class Lab4 {
   }
   public static int[] sortDescending(int[] arr) { // class to sort array
     for(int i =0; i< arr.length; i++){ // multiply all by neg 1
-      arr[i] = arr[i] * -1;
+      if (arr == null){
+        throw new IllegalArgumentException("Can't have null");
+      } else {
+        arr[i] = arr[i] * -1;
+      }
     }
     Arrays.sort(arr); // sort array 
     int [] returnArr = arr; // add old array to a new array
